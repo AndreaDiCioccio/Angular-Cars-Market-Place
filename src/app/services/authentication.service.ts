@@ -6,7 +6,7 @@ import { map, catchError, retry, tap, filter, switchMap } from 'rxjs/operators';
 
 import * as moment from "moment";
 import { ErrorsService } from './errors.service';
-import { serverUrl } from 'src/environments/environment';
+import { serverUrl } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 

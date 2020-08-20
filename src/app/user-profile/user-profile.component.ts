@@ -6,7 +6,7 @@ import { CarsService } from '../services/cars.service';
 import { take } from 'rxjs/operators';
 import { ErrorsService } from '../services/errors.service';
 import { CarWithObserved } from '../models/car';
-import { imagesUrl, carsImagesUrl } from 'src/environments/environment';
+import { imagesUrl, carsImagesUrl } from '../../environments/environment';
 
 @Component({
   selector: 'app-user-profile',

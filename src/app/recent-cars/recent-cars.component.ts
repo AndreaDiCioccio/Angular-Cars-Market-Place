@@ -6,7 +6,7 @@ import { map, take, tap } from 'rxjs/operators';
 import { CarRecent } from '../models/car-recent.model';
 import { User } from '../models/user';
 import { ErrorsService } from '../services/errors.service';
-import { imagesUrl, carsImagesUrl} from 'src/environments/environment'
+import { imagesUrl, carsImagesUrl} from '../../environments/environment'
 
 @Component({
     selector: 'app-recent-cars',

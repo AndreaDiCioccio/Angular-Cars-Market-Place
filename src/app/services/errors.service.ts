@@ -1,7 +1,7 @@
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpParams, HttpClient } from '@angular/common/http';
-import { serverUrl } from 'src/environments/environment';
+import { serverUrl } from '../../environments/environment';
 import { take, retry } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })

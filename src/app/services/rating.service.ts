@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
-import { serverUrl, useMock } from 'src/environments/environment';
+import { serverUrl, useMock } from '../../environments/environment';
 import { retry, tap, mergeMap, map, reduce, count, scan, catchError, take } from 'rxjs/operators';
-import { users } from 'src/app/mockData';
+import { users } from '../../app/mockData';
 import { of } from 'rxjs';
 
 @Injectable({

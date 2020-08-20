@@ -7,7 +7,7 @@ import { map, catchError, take, tap } from 'rxjs/operators';
 import { Car } from '../models/car';
 import { CarsService } from '../services/cars.service';
 import { ErrorsService } from '../services/errors.service';
-import { imagesUrl } from 'src/environments/environment';
+import { imagesUrl } from '../../environments/environment';
 
 @Component({
   selector: 'app-user-page',

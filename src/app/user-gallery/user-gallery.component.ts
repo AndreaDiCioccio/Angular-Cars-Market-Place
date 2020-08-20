@@ -4,7 +4,7 @@ import { map, catchError, take } from 'rxjs/operators';
 import { Car } from '../models/car';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { ErrorsService } from '../services/errors.service';
-import { carsImagesUrl } from 'src/environments/environment';
+import { carsImagesUrl } from '../../environments/environment';
 
 @Component({
   selector: 'app-user-gallery',

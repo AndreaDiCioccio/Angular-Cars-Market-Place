@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders , HttpParams } from '@angular/common/http';
 
 import { User } from '../models/user';
 import { map, retry } from 'rxjs/operators';
-import { serverUrl, useMock } from 'src/environments/environment';
+import { serverUrl, useMock } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {

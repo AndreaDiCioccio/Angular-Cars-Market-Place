@@ -16,6 +16,6 @@ export const environment = {
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
 export const serverUrl = 'https://37.116.163.199:5001/'
 //export const serverUrl = 'http://localhost:5000/'
-export const imagesUrl = 'https://raw.githubusercontent.com/canerandagio1983/CarsMarketPlace/master/assets/images/'
-export const carsImagesUrl = 'https://raw.githubusercontent.com/canerandagio1983/CarsMarketPlace/master/assets/CarsImages/'
+export const imagesUrl = 'https://raw.githubusercontent.com/AndreaDiCioccio/Angular-Cars-Market-Place/master/src/assets/images/'
+export const carsImagesUrl = 'https://raw.githubusercontent.com/AndreaDiCioccio/Angular-Cars-Market-Place/master/src/assets/CarsImages/'
 export const useMock = true

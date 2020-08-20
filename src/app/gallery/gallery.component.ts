@@ -8,7 +8,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { CarWithObserved } from '../models/car'
 import { ErrorsService } from '../services/errors.service';
 import { ObservedCar } from '../models/car';
-import { imagesUrl, carsImagesUrl } from 'src/environments/environment';
+import { imagesUrl, carsImagesUrl } from '../../environments/environment';
 
 @Component({
   selector: 'app-gallery',

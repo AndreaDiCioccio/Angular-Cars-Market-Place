@@ -6,7 +6,7 @@ import { Observable, Subject, BehaviorSubject, UnsubscriptionError } from 'rxjs'
 import { map, subscribeOn, take } from 'rxjs/operators';
 import { AuthenticationService } from '../services/authentication.service';
 import { ErrorsService } from '../services/errors.service';
-import { imagesUrl, carsImagesUrl } from 'src/environments/environment';
+import { imagesUrl, carsImagesUrl } from '../../environments/environment';
 
 @Component({
   selector: 'app-car-detail',

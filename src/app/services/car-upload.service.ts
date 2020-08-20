@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse, HttpEventType, HttpRequest, HttpEvent } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { serverUrl, useMock } from 'src/environments/environment';
+import { serverUrl, useMock } from '../../environments/environment';
 import { shareReplay, retry } from 'rxjs/operators';
 
 @Injectable({
@@ -69,7 +69,7 @@ export class CarUploadService {
         }else{
 
 
-            
+
         }
 
     }

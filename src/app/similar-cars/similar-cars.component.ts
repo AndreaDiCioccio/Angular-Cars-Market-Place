@@ -4,7 +4,7 @@ import { Car } from '../models/car';
 import { BehaviorSubject } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 import { ErrorsService } from '../services/errors.service';
-import { imagesUrl, carsImagesUrl } from 'src/environments/environment';
+import { imagesUrl, carsImagesUrl } from '../../environments/environment';
 
 @Component({
   selector: 'app-similar-cars',

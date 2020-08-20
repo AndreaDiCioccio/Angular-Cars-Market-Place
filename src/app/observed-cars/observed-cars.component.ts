@@ -6,7 +6,7 @@ import { User } from '../models/user';
 import { CarsService } from '../services/cars.service';
 import { take, tap } from 'rxjs/operators';
 import { ErrorsService } from '../services/errors.service';
-import { imagesUrl, carsImagesUrl } from 'src/environments/environment';
+import { imagesUrl, carsImagesUrl } from '../../environments/environment';
 
 
 @Component({

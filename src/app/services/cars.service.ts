@@ -6,9 +6,9 @@ import { shareReplay, map, retry, tap, groupBy, toArray, mergeMap, zip, reduce, 
 import { TypeCB } from '../models/type-cb';
 import { CarRecent } from '../models/car-recent.model';
 import { CarWithObserved } from '../models/car';
-import { serverUrl, useMock } from 'src/environments/environment';
+import { serverUrl, useMock } from '../../environments/environment';
 import { of } from 'rxjs';
-import { cars, users } from 'src/app/mockData'
+import { cars, users } from '../../app/mockData'
 
 @Injectable({
     providedIn: 'root'
