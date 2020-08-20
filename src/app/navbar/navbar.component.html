@@ -1,0 +1,51 @@
+<div class="topnav" id="myTopnav">
+    <a routerLink="/" >Home</a>
+    <a class="menu" routerLink="/gallery">Gallery</a>
+    <div *ngIf="authenticationService.currentUserValue && isLoggedIn">
+        <!-- <a class="menu"routerLink="/sellNewCar">Sell New Car</a> -->
+    </div>
+    <div *ngIf="!authenticationService.currentUserValue || !isLoggedIn">
+        <a routerLink="/register" class="menu registerButton">Register</a>
+    </div>
+    
+    <div *ngIf="!authenticationService.currentUserValue || !(isLoggedIn); else logged" class="dropdown">
+        <button class="dropbtn-login">Login</button>
+        <div class="dropdown-content-login">
+            <form [formGroup]="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <button class="button" (click)="login()">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- <div #logged*ngIf="authenticationService.currentUserValue && (isLoggedIn)" class="dropdown"> -->
+    <ng-template #logged >
+        <div class="dropdown">
+            <!--<button class="dropbtn-username">{{(this.authenticationService.currentUserSubject | async).username}}</button>-->
+            <button class="dropbtn-username">{{(user | async)?.username}}</button>
+            <div class="dropdown-content-username">            
+                <a routerLink="/userProfile" class="btnLink">MyProfile</a>
+                <a routerLink="/observedCars" class="btnLink">Observed Cars</a>
+                <!-- <a routerLink="/sellNewCar" class="btnLink">Sell New Car</a> -->
+                <br>
+                <button class="buttonLogout" (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </ng-template>
+    <a class="icon" (click)="responsive()">&#9776;</a>
+</div> 

@@ -1,0 +1,12 @@
+<h3>Similar Cars</h3>
+<div class="gallery">
+    <div class="card" *ngFor="let car of (similarCars | async)">
+        <a routerLink="/gallery/details/{{car?.id}}"><img calss="image" src="{{carsImagesUrl}}{{car?.image1}}"></a>
+        <div class="description-contenier">
+            <div class="descriptionPrice">{{car?.price | currency:'EUR'}}</div>
+            <div class="descriptionBase"><b>{{car?.brand}} {{car?.model}}</b></div>
+            <div class="description">{{car?.username}}</div>
+            <app-star-rating userId={{car?.userId}} size='small'></app-star-rating>
+        </div>
+    </div>
+</div>

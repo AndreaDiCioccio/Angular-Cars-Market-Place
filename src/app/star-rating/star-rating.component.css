@@ -1,0 +1,15 @@
+.ratingStarsContainer, .rating, .ratingCount{
+/*    display: inline-block; */
+}
+
+.container{
+    display:flex;
+}
+.rating{
+    font-size: 48px;
+}
+
+.ratingCount{
+    font-size: 40px;
+    color: grey;
+}

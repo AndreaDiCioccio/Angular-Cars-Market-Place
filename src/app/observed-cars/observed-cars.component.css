@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+*{
+	font-family: 'Poppins';
+}
+
+h2{
+	text-align:center;
+}
+
+.container{
+	background-color: white;
+	/*border: 2px solid black;*/
+	display: flex;
+	justify-content: flex-start;
+}
+
+.leftContainer, .rightContainer{
+	background-color: rgb(241, 241, 241);
+	max-width: 150px;
+	min-width: 150px;
+	flex-basis: 150px;
+	border: 1px solid lightgray;
+	padding: 10px;
+}
+/*
+.rightContainer{
+	position: absolute;
+	right: 0px;
+}
+*/
+.centralContainer{
+	padding: 3px;
+	width: 100%;
+}
+
+.leftContainer .callCenterAds{
+    display: none;
+}
+
+.card{
+    display: flex; 
+}
+
+.card .containerCheckBox{
+    min-height: fit-content;
+    top: -40px;
+    position: relative;
+    display: inline-block;
+}
+
+.centralContainer .card .containerCheckBox .checkBox{
+	display: inline-block;
+	position: relative;
+	top:50%;
+	transform:translate(0,-50%);
+}
+/*
+.gallery{
+	vertical-align: top;
+	text-align: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	background-color: white;
+}
+*/
+
+.firstBlock, .secondBlock, .blockSpace{
+    display: inline-block;
+}
+.card .secondBlock .descriptionUsername{
+    display: inline-block;
+}
+
+.card .firstBlock .image, .details{
+    display:inline-block
+}
+
+.image{
+	/*width: 100%;*/
+    background-color: white;
+    margin: 10px;
+	width:fit-content;
+	height: fit-content;
+	border: 1px solid lightgrey;
+	padding: 10px;
+    box-shadow: 5px 5px 5px lightgrey;
+}
+
+.image:hover{
+	transition: all ease-in-out 0.2s;
+	transform: scale(1.05, 1.05);
+}
+
+a img{
+    width: 120px;
+    height: 120px;
+}
+
+ .descriptionInLine .descriptionUsername{
+    font-size: 16px;
+	text-align: left;
+	width: 180px;
+}
+
+.descriptionUsername{
+    margin-top: 35px;
+}
+
+.descriptionBase{
+	font-size: 20px;
+    text-align: left;
+}
+
+.descriptionPrice{
+	font-size: 22px;
+	color: royalblue;
+	text-align: left;
+    width: 210px;
+    margin-top: 2px;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.noPrice{
+    font-size: 22px;
+	color: rgb(127, 146, 202);
+	text-align: left;
+    width: 210px;
+    text-decoration-line: line-through;
+    margin-top: 2px;
+    margin-bottom: 0px;
+}
+
+.descriptionPriceLabel{
+	width: 210px;
+	text-align: left;
+}
+
+.descriptionInLine{
+    display: flex;
+}
+
+.descriptionInLine .space{
+    min-width: 100px;
+}
+
+.blockSpace{
+    width: 100px;
+}
+
+a{
+    text-decoration-line: none;
+}
+
+.btnBuy{
+	border-radius: 0px;
+	width: 100%;
+	display:block;
+	border:0;
+    cursor:pointer;
+	outline:none;
+	background-color: royalblue;
+	color: white;
+	width: 100px;
+    text-align: center;
+    text-decoration: none;
+    text-decoration-line:none;
+}
+
+.observedBy{
+	text-align: left;
+	background-color: lightgray;
+	width: fit-content;
+	padding-left: 3px;
+	padding-right: 3px;
+	font-size: 12px;
+}
+
+.callCenterAds img{
+	width: 100%;
+}
+
+@media only screen and (max-width:950px){
+    
+    .rightContainer{
+		display:none;
+    }
+
+    .leftContainer .callCenterAds{
+        display: block;
+    }
+}
+
+@media only screen and (max-width:800px){
+    
+    .leftContainer{
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width:650px){
+    .blockSpace{
+        width:50px;
+    }
+}
+
+@media only screen and (max-width:600px){
+    .blockSpace{
+        display:none;
+    }
+}
+
+@media only screen and (max-width:550px){
+
+    .card{
+        display:block;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card .firstBlock, .secondBlock{
+        display: block;
+    }
+    /*
+    .card .secondBlock .descriptionUsername{
+        margin-left: 190px;
+        margin-top: 0px;
+    }
+
+    .secondBlock .buySection{
+        margin-left: 190px;;
+    }
+*/
+    .card .secondBlock{
+        margin-left: 190px;
+    }
+
+    .card .secondBlock .descriptionUsername{
+        margin-top: 0px;
+    }
+
+    .card{
+        border: 1px solid lightgrey;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width:450px){
+
+    .card .firstBlock{
+        width: 250px;
+    }
+
+    .card .firstBlock{
+        margin-left: 0px !important;
+    }
+
+    .card .firstBlock .details{
+        margin-left: 30px;
+    }
+
+    .card .secondBlock, .buySection{
+        margin-left: 30px;
+    }
+
+    .card .secondBlock .descriptionUsername{
+        margin-left: 0px;
+    }
+}

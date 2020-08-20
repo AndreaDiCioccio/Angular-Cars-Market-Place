@@ -1,0 +1,23 @@
+<h2>Welcome to Buy Car Page</h2>
+<div class="carDetailsContainer" *ngIf="!(isBuyed); else stars">
+    <img calss="image" src="{{carsImagesUrl}}{{(car  | async)?.image1}}">
+    <p class="carDetails">{{(car | async)?.brand}}</p>
+    <p class="carDetails">{{(car | async)?.model}}</p>
+    <button class="buyButton" (click)="buy()">Buy</button>
+</div>
+<ng-template #stars>
+    <div class="starsForRate" *ngIf="!(isRated); else rated">
+        <p>rate!</p>
+        <a (mouseenter)="mouseEnter(1)" (click)="rate(1)"><img src="{{greyStar}}"></a>
+        <a (mouseenter)="mouseEnter(2)" (click)="rate(2)"><img src="{{greyStar}}"></a>
+        <a (mouseenter)="mouseEnter(3)" (click)="rate(3)"><img src="{{greyStar}}"></a>
+        <a (mouseenter)="mouseEnter(4)" (click)="rate(4)"><img src="{{greyStar}}"></a>
+        <a (mouseenter)="mouseEnter(5)" (click)="rate(5)"><img src="{{greyStar}}"></a>
+        <p class="ratingSuggestion">{{(ratingSuggestion)}}</p>
+    </div>
+    <ng-template #rated>
+        <div class="ratingStarsDone" *ngFor="let rating of ratingArray">
+            <img src="{{rating}}">
+        </div>
+    </ng-template>
+</ng-template>

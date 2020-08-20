@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+*{
+	/*box-sizing:border-box;*/
+	font-family: 'Poppins';
+}
+
+h2{
+    text-align: center;
+}
+
+.carDetailsContainer, .rating{
+    text-align: center;
+}
+
+.ratingStarsDone{
+    display: inline-block;
+}

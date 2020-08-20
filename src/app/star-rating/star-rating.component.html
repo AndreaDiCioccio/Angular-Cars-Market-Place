@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="ratingStarsContainer" [ngStyle]="ratingStarsContainerStyle" *ngFor="let rat of (ratingArray | async)">
+        <img [ngStyle]="ratingStarsStyle" src="{{rat}}">
+    </div>
+    <div class="rating" [ngStyle]="ratingStyle" >{{rating | number:'1.0-1'}}</div>
+    <div class="ratingCount" [ngStyle]="ratingCountStyle" >({{count}})</div>
+</div>

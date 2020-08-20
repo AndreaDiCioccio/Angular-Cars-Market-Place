@@ -1,0 +1,87 @@
+<h2>Welcome to Sell New Car Page</h2>
+<div class="container">
+    <div class="form-group" *ngIf="step[0]">
+        <div class="stepTitle">Step 1</div>
+        <div class="stepIstructions">Insert car details</div>
+        <form [formGroup]="detailsForm">
+            <div><input type="text" placeholder="brand" formControlName="brand"></div>
+            <div><input type="text" placeholder="model" formControlName="model"></div>
+            <div>
+                <select formControlName="type">
+                    <option value="berlina">Berlina</option>
+                    <option value="coupe">Coupè</option>
+                    <option value="jeep">Jeep</option>
+                    <option value="sportiva">Sportiva</option>
+                    <option value="suv">SUV</option>
+                </select>
+            </div>
+            <div><button class="nextButton"(click)="saveDetails()">Next</button></div>
+        </form>
+    </div>
+    <div class="form-group" *ngIf="step[1]">  
+        <div class="stepTitle">Step 2</div>
+        <div class="stepIstructions">Choose first image</div>
+        
+        <div class="custom-file fileInputProfileWrap">
+            <input type="file" (change)="fileChangeEvent($event, 0)" class="fileInputProfile">
+        </div>
+        <ng-container *ngIf="isImageSaved[0]">
+            <img [src]="cardImageBase64[0]" />
+        </ng-container> 
+        <div>
+            <button class="removeButton" (click)="removeImage(0)" *ngIf="isImageSaved[0]">Remove</button>
+            <button class="nextButton" (click)="nextStep(0)" *ngIf="isImageSaved[0]">Next</button>
+        </div>
+        <p *ngIf="imageError[0]" class="error">{{imageError[0]}}</p>
+    </div>
+
+
+    <div class="form-group" *ngIf="step[2]">  
+        <div class="stepTitle">Step 3</div>
+        <div class="stepIstructions">Choose second image</div>
+        
+        <div class="custom-file fileInputProfileWrap">
+            <input type="file" (change)="fileChangeEvent($event, 1)" class="fileInputProfile">
+        </div>
+        <ng-container *ngIf="isImageSaved[1]">
+            <img [src]="cardImageBase64[1]" />
+        </ng-container> 
+        <div>
+            <button class="removeButton" (click)="removeImage(1)" *ngIf="isImageSaved[1]">Remove</button>
+            <button class="nextButton" (click)="nextStep(1)" *ngIf="isImageSaved[1]">Next</button>
+        </div>
+    </div>
+
+
+    <div class="form-group" *ngIf="step[3]"> 
+        <div class="stepTitle">Step 4</div>
+        <div class="stepIstructions">Choose third image</div>
+        
+        <div class="custom-file file3InputProfileWrap">
+            <input type="file" (change)="fileChangeEvent($event, 2)" class="fileInputProfile">
+        </div>
+        <ng-container *ngIf="isImageSaved[2]">
+            <img [src]="cardImageBase64[2]" />
+        </ng-container> 
+        <div>
+            <button class="removeButton" (click)="removeImage(2)" *ngIf="isImageSaved[2]">Remove</button>
+            <button class="nextButton" (click)="nextStep(2)" *ngIf="isImageSaved[2]">Next</button>
+        </div>
+        <p *ngIf="imageError[2]" class="error">{{imageError[2]}}</p>
+    </div>
+
+    <div class="form-group" *ngIf="step[4] && uploading">
+        <div class="stepTitle">Uploading...</div>
+        <div class="stepIstructions">wait until upload finish</div>
+        <div>prova</div>
+        <div class="percentProgress">{{fileToUpload[0].name}} <div class="percentProgressBar" [style.width.%]="percentDone[0]"> {{percentDone[0]}} </div></div>
+        <div class="percentProgress">{{fileToUpload[1].name}} <div class="percentProgressBar" [style.width.%]="percentDone[1]"> {{percentDone[1]}} </div></div>
+        <div class="percentProgress">{{fileToUpload[2].name}} <div class="percentProgressBar" [style.width.%]="percentDone[2]"> {{percentDone[2]}} </div></div>
+    </div>
+
+    <div class="form-group" *ngIf="step[5]">
+        <div class="stepTitle">Upload Successful</div>
+        <div class="stepIstructions">you can leave the page</div>
+    </div>
+
+</div>

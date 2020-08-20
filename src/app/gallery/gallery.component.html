@@ -1,0 +1,90 @@
+<h2>Welcome to Cars Gallery</h2>
+<button class="filterForSmallBtn" (click)="showFilterForSmall()">Filters</button>
+<div class="dropdown-filter-hide" id="dropdown-filter">
+    <select class="orderBox" (change)="orderBoxChange($event)">
+        <option>Brand</option>
+        <option>Model</option>
+    </select>
+    <br>
+    <br>
+    <div class="BrandFilterBox">
+        <div class="filterLabel"><b>Brand</b></div>
+        <label><input type="checkbox" id="allBrands" name="allBrands" value="all" [(ngModel)]="checkboxBrandAll" (change)="checkboxChange($event)"> all</label>
+        <div class="checkboxList" *ngFor="let brand of (brands | async)">
+            <label><input type="checkbox" [(ngModel)]="brand.checked" id="{{brand.name}}" name="otherBrands" value="{{brand.name}}" (change)="checkboxChange($event)"> {{brand.name}}</label><label class="labelCount"> ({{brand.count}})</label>
+        </div>
+    </div>
+    <br>
+    <div class="TypeFilterBox">
+        <div class="filterLabel"><b>Type</b></div>
+        <label><input type="checkbox" id="allType" name="allTypes" value="all" [(ngModel)]="checkboxTypeAll" (change)="checkboxChange($event)"> all</label>
+        <div class="checkboxList" *ngFor="let type of (types | async)">
+            <label><input type="checkbox" [(ngModel)]="type.checked" id="{{type.name}}" name="otherTypes" value="{{type.name}}" (change)="checkboxChange($event)"> {{type.name}}</label><label class="labelCount"> ({{type.count}})</label>
+        </div>
+    </div>
+    <br>
+    <button class="btnFilter" (click)="hideFilterForSmall()">Close</button>
+</div>
+<div class="container">
+    <div class="leftContainer">
+        <div>Order</div>
+        <select class="orderBox" (change)="orderBoxChange($event)">
+            <option>Brand</option>
+            <option>Model</option>
+        </select>
+        <br>
+        <br>
+        <div class="BrandFilterBox">
+            <div class="filterLabel"><b>Brand</b></div>
+            <label><input type="checkbox" id="allBrands" name="allBrands" value="all" [(ngModel)]="checkboxBrandAll" (change)="checkboxChange($event)"> all</label>
+            <div class="checkboxList" *ngFor="let brand of (brands | async)">
+                <label><input type="checkbox" [(ngModel)]="brand.checked" id="{{brand.name}}" name="otherBrands" value="{{brand.name}}" (change)="checkboxChange($event)"> {{brand.name}}</label><label class="labelCount"> ({{brand.count}})</label>
+            </div>
+        </div>
+        <br>
+        <div class="TypeFilterBox">
+            <div class="filterLabel"><b>Type</b></div>
+            <label><input type="checkbox" id="allType" name="allTypes" value="all" [(ngModel)]="checkboxTypeAll" (change)="checkboxChange($event)"> all</label>
+            <div class="checkboxList" *ngFor="let type of (types | async)">
+                <label><input type="checkbox" [(ngModel)]="type.checked" id="{{type.name}}" name="otherTypes" value="{{type.name}}" (change)="checkboxChange($event)"> {{type.name}}</label><label class="labelCount"> ({{type.count}})</label>
+            </div>
+        </div>
+        <br>
+        <app-recent-cars></app-recent-cars>
+        <div class="callCenterAds">
+            <img src="{{imagesUrl}}callCenterADS.jpg">
+        </div>
+    </div>
+    
+    <div class="gallery">
+        <div class="card" *ngFor="let car of (filteredCars | async)">
+            <a routerLink="/gallery/details/{{car.id}}"><img calss="image" src="{{carsImagesUrl}}{{car.image1}}"></a>
+            <div class="description-contenier">
+                <div class="prices" *ngIf="(car.discount != 0) else normalPrice">
+                    <div class="noPrice">{{car?.price | currency:'EUR'}}</div>
+                    <div class="descriptionPrice">{{car?.price - (car.price /100 * car.discount) | currency:'EUR'}}</div>
+                </div>
+                <ng-template #normalPrice>
+                    <div class="descriptionPrice">{{car?.price | currency:'EUR'}}</div>
+                    <div class="spacePrice"></div>
+                </ng-template> 
+                <div class="descriptionBase"><b>{{car?.brand}} {{car?.model}}</b></div>
+                <div class="description">{{car?.username}}</div>
+                <app-star-rating userId={{car?.userId}} size='small'></app-star-rating>
+            </div>
+            <div *ngIf="authService.currentUserValue">
+                <div *ngIf="(car.observed == true) else isNotObserved">
+                    <input type="button" class="btnObserved"  value="Observed" title="click to don't observe" (click)="dontObserve(car.id)">
+                </div>
+                <ng-template #isNotObserved><input type="button" class="btnObserve" value="Observe" title="click to observe" (click)="observe(car.id)"></ng-template>
+            </div>
+        </div>
+    </div>
+
+    <div class="rightContainer">
+        <div class="callCenterAds">
+            <img src="{{imagesUrl}}callCenterADS.jpg">
+        </div>
+        <div>pubblicità</div>
+    </div>
+</div>

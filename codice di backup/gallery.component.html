@@ -1,0 +1,28 @@
+<h2>Welcome to Car Gallery</h2>
+<div class="container">
+    <div class="leftContainer">
+        <div class="filterBox">
+            <label><input type="checkbox" id="all" name="all" value="all" [(ngModel)]="checkboxAll.checked" (change)="checkboxChange($event)">all</label>
+            <div class="checkboxList" *ngFor="let brand of brands">
+            <label><input type="checkbox" [(ngModel)]="brand.checked" id="{{brand.brand}}" name="{{brand.brand}}" value="{{brand.brand}}" (change)="checkboxChange($event)">{{brand.brand}}</label>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div class="gallery">
+        <div class="card" *ngFor="let car of filteredCars">
+            <a routerLink="/gallery/details/{{car.id}}"><img src="{{url}}{{car.image1}}" width="50%" height="50%"></a>
+            <div class="description-contenier">
+                <p class="description">Id:{{car?.id}}</p>
+                <p class="description">Model:{{car?.model}}</p>
+                <p class="description">Brand:{{car?.brand}}</p>
+                <p class="description">{{car?.username}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="rightContainer">
+        <div class="callCenterAds">
+            <img src="assets/images/callCenterADS.jpg">
+        </div>
+    </div>
+</div>

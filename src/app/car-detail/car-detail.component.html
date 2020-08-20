@@ -1,0 +1,43 @@
+<h2>Welcome to Car Details</h2>
+
+<div class="container">
+    <div class="leftContainer">
+        <app-recent-cars></app-recent-cars>
+    </div>
+
+    <!--IMPLEMENTARE SLIDE PER SCHERMI PICCOLI -->
+    <div class="centralContainer" *ngIf="(car | async)">
+        <div class="carDetails">
+            <div class="descriptionBase"><b>{{(car | async)?.brand}} {{(car | async)?.model}}</b> {{(car | async)?.type}} </div>
+            <div class="descriptionPrice"> {{(car | async)?.price | currency:'EUR'}}</div>
+            <div class="containerUsernameAndStars">
+                <div class="descriptionUsername"> 
+                    <a routerLink="/userPage/{{(car | async)?.userId}}">{{(car | async)?.username}}</a> 
+                </div>
+                <app-star-rating userId="{{(car | async)?.userId}}" size='small'></app-star-rating>
+            </div>
+            <a routerLink="/buyCar/{{(idSelectedCar)}}">
+                <button class="buyButton" title="click to buy">Buy</button>
+            </a>
+        </div> 
+        <div class="gallery">
+            <div class="card" >
+                <a href="{{carsImagesUrl}}{{(car | async)?.image1}}"><img src="{{carsImagesUrl}}{{(car | async)?.image1}}"></a>
+            </div>
+            <div class="card">
+                    <a href="{{carsImagesUrl}}{{(car | async)?.image2}}"><img src="{{carsImagesUrl}}{{(car | async)?.image2}}"></a>
+            </div>
+            <div class="card">
+                <a href="{{carsImagesUrl}}{{(car | async)?.image3}}"><img src="{{carsImagesUrl}}{{(car | async)?.image3}}"></a>
+            </div>
+        </div>
+        <app-similar-cars carType="{{(car | async)?.type}}" idCarViewed="{{(car | async)?.id}}"></app-similar-cars>
+    </div>
+
+    <div class="rightContainer">
+        <div class="callCenterAds">
+            <img src="{{imagesUrl}}callCenterADS.jpg">
+        </div>
+        <div>pubblicità</div>
+    </div>
+</div>

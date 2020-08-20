@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+*{
+	/*box-sizing:border-box;*/
+	font-family: 'Poppins';
+}
+
+.recentCar{
+	border: 1px solid lightgrey;
+	background-color: white;
+}
+
+.descriptionBase{
+	font-size: 16px;
+	text-align: right;
+}
+
+.descriptionPrice{
+	font-size: 20px;
+	color: blue;
+	text-align: right;
+}
+
+.noPrice{
+    font-size: 20px;
+	color: rgb(127, 146, 202);
+    text-align: right;
+    text-decoration-line: line-through;
+}
+
+.space{
+	height: 15px;
+}

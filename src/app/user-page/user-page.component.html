@@ -1,0 +1,19 @@
+<h2>Welcome to User Page</h2>
+<div class="containerUser">
+    <h2 class="sellerUsername"><b>{{username}}</b></h2>
+    <div class="stars"><app-star-rating userId="{{userId}}" size='small'></app-star-rating></div>
+</div> 
+<div class="container">
+    <div class="leftContainer">
+        <app-recent-cars ></app-recent-cars>
+    </div>
+    <div class='galleryContainer'>
+        <app-user-gallery userId={{userId}} username={{username}}></app-user-gallery>
+    </div>
+    <div class="rightContainer">
+        <div class="callCenterAds">
+            <img src="{{imagesUrl}}callCenterADS.jpg">
+        </div>
+        <div>pubblicità</div>
+    </div>
+</div>

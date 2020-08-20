@@ -1,0 +1,67 @@
+<h2>Welcome to User Profile</h2>
+<div class="container">
+    <div class="leftContainer">
+
+    </div>
+
+    <div class="centralContainer">
+
+        <h3>User Details</h3>
+        <div>Id: {{(user | async)?.id}}</div>
+        <div>FirstName: {{(user | async)?.firstName}}</div>
+        <div>LastName: {{(user | async)?.lastName}}</div>
+        <div>Username: {{(user | async)?.username}}</div>
+        <div>Email: {{(user | async)?.email}} Inserire funzione di modifica password</div>
+
+        <h3>User Selling Cars</h3>
+        <div class="gallery">
+            <div *ngFor="let car of sellingCars | async; let i = index">
+                <div class="card">
+                    <div class="cardImage">
+                        <a routerLink="/gallery/details/{{car.id}}"><img calss="image" src="{{carsImagesUrl}}{{car.image1}}"></a>
+                    </div>
+                    <div class="descriptionBlock1">
+                        <div class="descriptionBase"><b>{{car?.brand}} {{car?.model}}</b></div>
+                            <div class="descriptionPriceLabel">PRICE:</div>
+                            <div *ngIf="(car.discount == 0) else discount" class="descriptionPrice">{{car?.price | currency:'EUR'}}</div>
+                            <ng-template #discount>
+                                <div class="noPrice">{{car?.price | currency:'EUR'}}</div>
+                                <div class="descriptionPrice">{{car.price - (car.price / 100 * car.discount) | currency:'EUR'}}</div>
+                            </ng-template>
+                            <br class="br">
+                        <div class="observedBy" *ngIf="car.count > 0 else noCount">observed by {{car.count}} persons</div>
+                        <ng-template  #noCount>
+                            <div class="observedBy">Nobody observe this car</div>
+                        </ng-template>
+                    </div>
+                    <div class="space"></div>
+                    <div class="descriptionBlock2">
+                        <div class="containerDiscountBlock1">
+                            <div class="descriptionDiscountLabel">SET DISCOUNT:</div>
+                            <div class="descriptionDiscount">
+                                <input type="text" class="inputDiscount" (input)="updateDiscountPrice($event, car.id, i)" id="inputDiscount{{i}}" >
+                                <button class="btnSet" (click)="setDiscountPrice(car.id, i)">set</button>
+                            </div>
+                        </div>
+                        <div class="space"></div>
+                        <div class="containerDiscountBlock2">
+                            <div class="descriptionDiscountLabel">DISCOUNTED PRICE:</div>
+                            <div class="descriptionPrice" *ngIf="car.discount != 0">{{car.price - (car.price / 100 * car.discount) | currency:'EUR'}} </div>
+                        </div>
+                    </div>
+                    <div calss="descriptionBlock3">
+                        
+                    </div>  
+                </div>
+                
+
+            </div>
+        </div>
+    </div> <!-- centralContainer-->
+
+    <div class="rightContainer">
+        <div class="callCenterAds">
+            <img src="{{imagesUrl}}callCenterADS.jpg">
+        </div>
+    </div>
+</div>

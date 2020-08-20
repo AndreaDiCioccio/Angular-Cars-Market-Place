@@ -1,0 +1,113 @@
+<h2>Welcome to Sell New Car Page</h2>
+<div class="container">
+    <div class="formDetails" *ngIf="stepDetails">
+        <div class="stepTitle">Step 1</div>
+        <div class="stepIstructions">Insert car details</div>
+        <form [formGroup]="formDetails" (submit)="saveDetails()">
+            <div><input class="inputText" type="text" placeholder="brand" formControlName="brand"></div>
+            <div *ngIf="submitted && fDetails.brand.errors" class="invalid-feedback">
+                <div class="error" *ngIf="fDetails.brand.errors.required">Brand is required</div>
+                <div class="error" *ngIf="fDetails.brand.errors.minlength">Brand Name must be at least 2 characters </div>
+            </div>
+            <div><input class="inputText" type="text" placeholder="model" formControlName="model"></div>
+            <div *ngIf="submitted && fDetails.model.errors" class="invalid-feedback">
+                <div class="error" *ngIf="fDetails.model.errors.required">Model is required</div>
+                <div class="error" *ngIf="fDetails.model.errors.minlength">Model Name must be at least 2 characters </div>
+            </div>
+            <div><input class="inputText" type="text" placeholder="price" formControlName="price"></div>
+            <div *ngIf="submitted && fDetails.price.errors" class="invalid-feedback">
+                <div class="error" *ngIf="fDetails.price.errors.required">Price is required</div>
+                <div class="error" *ngIf="fDetails.price.errors.minlength">Price Name must be at least 4 characters </div>
+                <div class="error" *ngIf="fDetails.price.errors.pattern">Price must be letters</div>
+            </div>
+            <div>
+                <select class="inputText"  formControlName="type">
+                    <option value="berlina">Berlina</option>
+                    <option value="coupe">Coupè</option>
+                    <option calue="citycar">CityCar</option>
+                    <option value="jeep">Jeep</option>
+                    <option value="sportiva">Sportiva</option>
+                    <option value="suv">SUV</option>
+                </select>
+            </div>
+            <div *ngIf="submitted && fDetails.type.errors" class="invalid-feedback">
+                <div class="error" *ngIf="fDetails.type.errors.required">TYpe is required</div>
+                <div class="error" *ngIf="fDetails.type.errors.minlength">Type Name must be at least 3 characters </div>
+            </div>
+            
+            <input class="nextButton" type="submit" value="Next">
+        </form>
+    </div>
+    <div class="formImages" *ngIf="stepChoose">  
+        <div class="stepTitle">Step 2</div>
+        <div class="stepIstructions">Choose three images</div>
+        <div class="form">
+            <form [formGroup]="formImages" (submit)="uploadDetails()">
+                <div class="uploads">
+                    <div class="Upload">
+                        <div *ngIf="!(imagePreUpload[0]); else preUploaded1">
+                            <div class="custom-file" >
+                                <input type="file" formControlName="image1" id="image1" (change)="fileChangeEvent($event, 0)" class="fileInputProfile" style="display: none;">
+                                <label for="image1" ><img src="/assets/images/logoUpload.png"></label>
+                            </div>
+                        </div>
+                        <!-- <ng-container *ngIf="imagePreUpload[0]"> -->
+                        <ng-template #preUploaded1>
+                            <ng-container>
+                                <img [src]="cardImageBase64[0]" />
+                                <div><button (click)="removeImage(0)">RemoveImage</button></div>
+                            </ng-container> 
+                        </ng-template>
+                    </div>
+                    <div class="Upload">
+                        <div *ngIf="!(imagePreUpload[1]); else preUploaded2">
+                            <div class="custom-file" *ngIf="!(imagePreUpload[1]) else preUploaded2">
+                                <input type="file" formControlName="image2" id="image2" (change)="fileChangeEvent($event, 1)" class="fileInputProfile" style="display: none;">
+                                <label for="image2" ><img src="/assets/images/logoUpload.png"></label>
+                            </div>
+                        </div>
+                        <ng-template #preUploaded2>
+                            <ng-container>
+                                <img [src]="cardImageBase64[1]" />
+                                <div><button (click)="removeImage(1)">RemoveImage</button></div>
+                            </ng-container> 
+                        </ng-template>
+                    </div>
+                    <div class="Upload">
+                        <div *ngIf="!(imagePreUpload[2]); else preUploaded3">
+                            <div class="custom-file" *ngIf="!(imagePreUpload[2]) else preUploaded3">
+                                <input type="file" formControlName="image3" id="image3" (change)="fileChangeEvent($event, 2)" class="fileInputProfile" style="display: none;">
+                                <label for="image3" ><img src="/assets/images/logoUpload.png"></label>
+                            </div>
+                        </div>
+                        <ng-template #preUploaded3>
+                            <ng-container>
+                                <img [src]="cardImageBase64[2]" />
+                                <div><button (click)="removeImage(2)">RemoveImage</button></div>
+                            </ng-container>
+                        </ng-template> 
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" class="nextButton" value="Next" >
+                </div>
+                <p *ngIf="imageError[0]" class="error">{{imageError[0]}}</p>
+            </form>
+        </div>
+        
+    </div>
+        <div class="uploadProgress" *ngIf="stepUploading">
+            <div class="stepTitle">Uploading...</div>
+            <div class="stepIstructions">wait until upload finish</div>
+            <div class="percentProgress">{{fileToUpload[0].name}} <div class="percentProgressBar" [style.width.%]="percentDone[0]"> {{percentDone[0]}} </div></div>
+            <div class="percentProgress">{{fileToUpload[1].name}} <div class="percentProgressBar" [style.width.%]="percentDone[1]"> {{percentDone[1]}} </div></div>
+            <div class="percentProgress">{{fileToUpload[2].name}} <div class="percentProgressBar" [style.width.%]="percentDone[2]"> {{percentDone[2]}} </div>
+        </div>
+    </div>
+
+    <div class="uploadMessages" *ngIf="stepUploaded">
+        <div class="stepTitle">Upload Successful</div>
+        <div class="stepIstructions">you can leave the page</div>
+    </div>
+
+</div>

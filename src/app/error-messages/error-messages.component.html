@@ -1,0 +1,6 @@
+<div class="alerts">
+    <div class="alert" *ngFor="let error of (errorsService.errors$ | async)">
+        {{error}}
+        <span class="btnclose" onclick="this.parentElement.style.display='none';">&times;</span> 
+    </div> 
+</div>

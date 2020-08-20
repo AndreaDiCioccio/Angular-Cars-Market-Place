@@ -1,0 +1,96 @@
+h2{
+	text-align:center;
+}
+
+.container{
+	text-align: center;
+}
+
+.formDetails, .formImages{
+	background-color: white;
+	width:fit-content;
+	margin: auto;
+	border: 2px solid lightgrey;
+	padding: 10px;
+}
+
+.error{
+    color:red;
+}
+
+.inputText{
+	margin: 5px;
+}
+.uploadProgress, .uploadMessages{
+	text-align: center;
+	width: fit-content;
+	margin: auto;
+}
+
+.nextButton{
+	margin-top: 5px;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	color: #FFFFFF;
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: 100;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	background-color: #1E6BC1;
+	border: solid rgb(18, 0, 119) 2px;
+	text-decoration: none;
+	display: inline-block;
+	border-radius: 100px;
+	cursor: pointer;
+	text-align: center;
+
+}
+
+.removeButton{
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	color: #FFFFFF;
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: 100;
+	padding-left: 16px;
+	padding-right: 16px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	font-weight: 100;
+	background-color: #8F8F8F;
+	border: solid #C3C3C3 3px;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	text-align: center;
+}
+
+.removeButton:hover{
+	background: #8F8F8F;
+	border: solid #404040 3px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	text-decoration: none;
+}
+
+.percentProgressBar{
+	background-color: #1E6BC1;
+	height: 20px;
+}
+
+.uploads{
+    display: flex;
+    justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.upload{
+
+}

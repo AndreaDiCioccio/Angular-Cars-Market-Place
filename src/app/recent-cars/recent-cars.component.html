@@ -1,0 +1,13 @@
+<div>Recent Seen</div>
+<div class="recentCars" *ngFor="let car of (recentCars | async)">
+    <div class="recentCar">
+        <a routerLink="/gallery/details/{{car.id}}"><img src="{{carsImagesUrl}}{{car.image1}}" width="100%" height="100%"></a>
+        <div class="descriptionBase">{{car?.brand}} {{car?.model}}</div>
+        <div class="descriptionPrice" *ngIf="car?.discount == 0 else discount">{{car?.price | currency:'EUR'}}</div>
+        <ng-template #discount>
+            <div class="noPrice">{{car?.price | currency:'EUR'}}</div>
+            <div class="descriptionPrice">{{car?.price - (car.price /100 * car.discount) | currency:'EUR'}}</div>
+        </ng-template>
+    </div>
+    <br>
+</div>

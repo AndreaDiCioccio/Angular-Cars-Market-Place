@@ -1,0 +1,18 @@
+<h3>User Gallery</h3>
+<h5 style="text-align: center;">these are the cars that {{username}} sell</h5>
+<div class="gallery">
+    <div class="card" *ngFor="let car of cars | async">
+        <a routerLink="/gallery/details/{{car.id}}"><img src="{{carsImagesUrl}}{{car.image1}}"></a>
+        <div class="description-contenier">
+            <div class="prices" *ngIf="(car.discount != 0) else normalPrice">
+                <div class="noPrice">{{car?.price | currency:'EUR'}}</div>
+                <div class="descriptionPrice">{{car?.price - (car.price /100 * car.discount) | currency:'EUR'}}</div>
+            </div>
+            <ng-template #normalPrice>
+                <div class="descriptionPrice">{{car?.price | currency:'EUR'}}</div>
+                <div class="spacePrice"></div>
+            </ng-template> 
+            <div class="descriptionBase"><b>{{car?.brand}} {{car?.model}}</b></div>
+        </div>
+    </div>
+</div>
