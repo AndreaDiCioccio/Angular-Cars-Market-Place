@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map, catchError, retry, tap, filter, switchMap } from 'rxjs/operators';
 
-import * as moment from "moment";
+import moment from "moment";
 import { ErrorsService } from './errors.service';
 import { serverUrl } from '../../environments/environment';
 
